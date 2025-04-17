@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивное электроно-техническое руководство(ИЭТР)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Интерактивное электроно-техническое руководство(ИЭТР)</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="grid">
+            <!-- Регламентные работы -->
+            <div class="section">
+                <h2>Регламентные работы</h2>
+                <ul>
+                    <li><button onclick="openDialog('Проверка работы сервера', 'Зайдите на сайт, найдите форму для отправки заявки, введите произвольные контактные данные и отправьте. ')">Проверка работы сервера</button></li>
+                    <li><button onclick="openDialog('Проверка состояния сервера', 'Зайдите на хостинг и посмотрите на состояние сервера.')">Проверка состояния сервера</button></li>
+                    <li><button onclick="openDialog('Мониторинг заявок, пришедших с сайта', 'Зайдите в Telegram бота и посмотрите, пришли ли новые заявки.')">Мониторинг заявок, пришедших с сайта</button></li>
+                </ul>
+            </div>
+
+            <!-- Устранение неисправностей -->
+            <div class="section">
+                <h2>Устранение неисправностей</h2>
+                <ul>
+                    <li><button onclick="startTroubleshooting('noResponse')">Бот не отвечает/не реагирует</button></li>
+                    <li><button onclick="startTroubleshooting('noRequests')">Заявки не приходят в бота</button></li>
+                    <li><button onclick="startTroubleshooting('incompleteRequests')">Бот получает неполные заявки</button></li>
+                    <li><button onclick="startTroubleshooting('duplicateRequests')">Бот дублирует заявки</button></li>
+                </ul>
+            </div>
+
+            <!-- Справочная информация -->
+            <div class="section">
+                <h2>Справочная информация</h2>
+                <ul>
+                    <li><button onclick="openDialog('Требования к работе с кодом', 'Рекомендации по работе с кодом бота')">Требования к работе с кодом</button></li>
+                    <li><button onclick="openDialog('Защита информации', 'Не передавайте учетные данные третьим лицам. Для синхронизации данных используйте корпоративную VPN, предоставленную администрацией компании. Все отчеты и документы хранятся в зашифрованном виде в облачной базе данных. В случае утери устройства немедленно сообщите администратору для блокировки доступа.')">Защита информации</button></li>
+                    <li><button onclick="openDialog('Контактные данные начальника и его заместителей', 'Иванов Иван Иванович. Номер телефона: 8(977)777-77-77')">Контактные данные начальника и его заместителей</button></li>
+                    <li><button onclick="openDialog('Правила работы с сервером', 'Методические указания по правильной работе и аудиту сервера')">Правила работы с сервером</button></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Диалоговое окно -->
+    <div id="dialog" class="dialog">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <h3 id="dialog-title"></h3>
+                <button onclick="closeDialog()" class="close-button">×</button>
+            </div>
+            <div id="dialog-body" class="dialog-body"></div>
+            <div class="dialog-footer">
+                <button onclick="closeDialog()" class="close-btn">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
